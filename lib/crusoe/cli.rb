@@ -13,14 +13,9 @@ module Crusoe
       update_repo
     end
 
-    desc "report TYPE", 'Generate a report. TYPE can be "week".'
-    def report(type)
-      case type
-      when "week"
+    desc "week", 'Generate a report for the last week'
+    def week
         puts "Generating a weekly report..."
-      else
-        puts "Unknown report type."
-      end
     end
 
     # TODO: Add command for updating the TOC file on each commit

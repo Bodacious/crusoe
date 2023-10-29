@@ -15,14 +15,12 @@ module Crusoe
 
       def submit!
         entry_file_name = EntryFileName.new(entry, directory)
-        EntryFile.create_unless_exist(entry_file_name) do |file|
-          file_content = EntryTemplate.new(entry).to_s
-          file.write(file_content)
-        end
+        file_content = EntryTemplate.new(entry).to_s
+        EntryFile.create_unless_exist(entry_file_name, file_content)
         system("#{editor_exe} #{editor_options} #{entry_file_name}")
-
-        # GitCommit.new.commit!
       end
+
+      private
 
       def editor_exe
         "${EDITOR:-vi}"
