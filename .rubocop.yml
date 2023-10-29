@@ -19,3 +19,8 @@ Style/StringLiteralsInInterpolation:
 
 Layout/LineLength:
   Max: 120
+
+RSpec/ExampleLength:
+  Max: 50
+RSpec/VerifiedDoubleReference:
+  EnforcedStyle: string
