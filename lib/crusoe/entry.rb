@@ -1,3 +1,5 @@
+require 'date'
+
 module Crusoe
   class Entry
     attr_reader :date

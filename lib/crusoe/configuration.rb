@@ -1,5 +1,7 @@
 module Crusoe
   class Configuration
+    require 'yaml'
+
     DEFAULT_DIRECTORY = File.join(Dir.home, ".crusoe")
     ENTRIES_DIRECTORY_NAME = "entries".freeze
     CONFIGURATION_FILE_NAME = "config.yml".freeze

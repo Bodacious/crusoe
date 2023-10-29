@@ -1,3 +1,4 @@
+require_relative "../../crusoe/entry"
 require_relative "../../crusoe/entry_file"
 require_relative "../../crusoe/entry_file_name"
 require_relative "../../crusoe/entry_template"
