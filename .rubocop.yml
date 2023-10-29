@@ -1,0 +1,21 @@
+inherit_from:
+  - https://raw.githubusercontent.com/Bodacious/style-guides/main/.rubocop.yml
+
+require:
+  - rubocop-rspec
+  - rubocop-rake
+
+AllCops:
+  TargetRubyVersion: 2.7
+  NewCops: enable
+
+Style/StringLiterals:
+  Enabled: true
+  EnforcedStyle: double_quotes
+
+Style/StringLiteralsInInterpolation:
+  Enabled: true
+  EnforcedStyle: double_quotes
+
+Layout/LineLength:
+  Max: 120
