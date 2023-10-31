@@ -1,4 +1,4 @@
-require 'date'
+require "date"
 
 module Crusoe
   class Entry

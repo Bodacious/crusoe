@@ -8,8 +8,8 @@ module Crusoe
       attr_reader :entry
       attr_reader :directory
 
-      def initialize(directory:, entry: Crusoe::Entry.new)
-        @entry = entry
+      def initialize(directory:, date: Date.today)
+        @entry = Crusoe::Entry.new(date)
         @directory = directory
       end
 

@@ -3,7 +3,7 @@ module Crusoe
     attr_reader :entry_file_name
     attr_reader :content
 
-    def self.create_unless_exist(entry_file_name, content = '')
+    def self.create_unless_exist(entry_file_name, content = "")
       entry_file = new(entry_file_name)
 
       return if entry_file.exist?
