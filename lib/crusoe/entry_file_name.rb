@@ -19,16 +19,11 @@ module Crusoe
     private
 
     def month_directory_name
-      [entry.year.to_s, entry.month.to_s].join("-")
+      entry.date.to_s
     end
 
     def file_name
-      [
-
-        entry.year.to_s,
-        entry.month.to_s,
-        entry.day.to_s
-      ].join("-")
+      entry.date.to_s
     end
 
     def file_format

@@ -1,4 +1,4 @@
-require 'date'
+require "date"
 
 module Crusoe
   class Entry
@@ -8,18 +8,6 @@ module Crusoe
 
     def initialize(date = Date.today)
       @date = date
-    end
-
-    def year
-      date.year
-    end
-
-    def month
-      date.month
-    end
-
-    def day
-      date.day
     end
   end
 end
