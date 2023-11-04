@@ -8,7 +8,7 @@ module Crusoe
       attr_reader :date_range
       attr_reader :directory
 
-      DAY_SEPARATOR = "\n\n"
+      DAY_SEPARATOR = "\n\n".freeze
       JOURNAL_FILE_DATE_REGEX = %r{/(?<date>\d{4}-\d{2}-\d{2})\.md$}.freeze
 
       def initialize(directory:, date_range:)
@@ -23,12 +23,12 @@ module Crusoe
       private
 
       def files
-        Dir.glob(File.join(directory, "*", "*.md")).
-          select do |file|
-            match_data = file.match(JOURNAL_FILE_DATE_REGEX)
-            file_date = Date.parse(match_data[:date])
-            date_range.include?(file_date)
-          end
+        Dir.glob(File.join(directory, "*", "*.md"))
+           .select do |file|
+          match_data = file.match(JOURNAL_FILE_DATE_REGEX)
+          file_date = Date.parse(match_data[:date])
+          date_range.include?(file_date)
+        end
       end
     end
   end

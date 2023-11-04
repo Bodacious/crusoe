@@ -11,16 +11,16 @@ module Crusoe
     attr_reader :interface
     private :configuration, :interface
 
-    def initialize(*)
+    def initialize(...)
       @configuration = Configuration.new
       @interface = Interface.new
-      super(*)
+      super(...)
     end
 
     default_task :journal
 
     desc "journal", "This is the default task."
-    option :date, type: 'string', default: 'today'
+    option :date, type: "string", default: "today"
     def journal
       date = parse_date_option(options[:date])
       write(date)
@@ -28,7 +28,7 @@ module Crusoe
     end
 
     desc "read", "Read an entry"
-    option :date, type: 'string', default: 'today'
+    option :date, type: "string", default: "today"
     def read
       date = parse_date_option(options[:date])
       read_dates(date)
@@ -53,8 +53,8 @@ module Crusoe
 
     def parse_date_option(date_option_string)
       case date_option_string
-      when 'today' then Date.today
-      when 'yesterday' then Date.today - 1
+      when "today" then Date.today
+      when "yesterday" then Date.today - 1
       else
         Date.parse(date_option_string)
       end

@@ -8,14 +8,14 @@ module Crusoe
       system("#{editor_exe} #{editor_options} #{file_name}")
     end
 
-      private
+    private
 
-      def editor_exe
-        "${EDITOR:-vi}"
-      end
+    def editor_exe
+      "${EDITOR:-vi}"
+    end
 
-      def editor_options
-        "-w"
-      end
+    def editor_options
+      "-w"
+    end
   end
 end
