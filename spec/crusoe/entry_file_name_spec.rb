@@ -4,7 +4,7 @@ require "crusoe/entry_file_name"
 
 RSpec.describe Crusoe::EntryFileName do
   it "#to_file_path returns the correct file path" do
-    entry = instance_double("Crusoe::Entry", year: 2023, month: 10, day: 28)
+    entry = instance_double("Crusoe::Entry", date: Date.parse('2023-10-28'))
     entries_directory = "/path/to/entries"
     entry_file_name = described_class.new(entry, entries_directory)
     expected_file_path = "/path/to/entries/2023-10/2023-10-28.md"
@@ -13,7 +13,7 @@ RSpec.describe Crusoe::EntryFileName do
   end
 
   it "#to_s method is aliased to to_file_path" do
-    entry = instance_double("Crusoe::Entry", year: 2023, month: 10, day: 28)
+    entry = instance_double("Crusoe::Entry", date: Date.parse('2023-10-28'))
     entries_directory = "/path/to/entries"
     entry_file_name = described_class.new(entry, entries_directory)
 

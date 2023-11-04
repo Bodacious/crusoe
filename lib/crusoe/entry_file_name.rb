@@ -3,6 +3,8 @@ module Crusoe
     attr_reader :entry
     attr_reader :entries_directory
 
+    DATE_SEPARATOR = "-".freeze
+
     def initialize(entry, entries_directory)
       @entry = entry
       @entries_directory = entries_directory
@@ -20,6 +22,9 @@ module Crusoe
 
     def month_directory_name
       entry.date.to_s
+           .split(DATE_SEPARATOR)
+           .take(2)
+           .join(DATE_SEPARATOR)
     end
 
     def file_name
