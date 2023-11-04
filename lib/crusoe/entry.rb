@@ -2,24 +2,13 @@ require "date"
 
 module Crusoe
   class Entry
-    attr_reader :date
+    attr_reader :date, :year, :month, :day
 
     public :binding
 
     def initialize(date = Date.today)
       @date = date
-    end
-
-    def year
-      date.year
-    end
-
-    def month
-      date.month
-    end
-
-    def day
-      date.day
+      @year, @month, @day = *date.to_s.split("-")
     end
   end
 end
