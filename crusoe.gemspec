@@ -9,10 +9,14 @@ Gem::Specification.new do |spec|
   spec.email = ["gavin@gavinmorrice.com"]
 
   spec.summary = "A journaling tool for developers."
-  spec.description = "Crusoe is a gem that helps you keep track of your daily work and thoughts in Markdown files. It automates the process of creating, updating, and organising these files."
+  spec.description = <<~TEXT
+    Crusoe is a gem that helps you keep track of your daily
+    work and thoughts in Markdown files. It automates the
+    process of creating, updating, and organising these files.
+  TEXT
   spec.homepage = "https://github.com/bodacious/crusoe"
   spec.license = "MIT"
-  spec.required_ruby_version = ">= 3.2"
+  spec.required_ruby_version = ">= 3.0"
 
   spec.metadata["allowed_push_host"] = "https://rubygems.org"
 
