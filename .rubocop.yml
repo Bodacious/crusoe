@@ -6,7 +6,7 @@ require:
   - rubocop-rake
 
 AllCops:
-  TargetRubyVersion: 2.7
+  TargetRubyVersion: 3.0
   NewCops: enable
 
 Style/StringLiterals:
@@ -20,7 +20,14 @@ Style/StringLiteralsInInterpolation:
 Layout/LineLength:
   Max: 120
 
+RSpec/AnyInstance:
+  Enabled: false
+
 RSpec/ExampleLength:
   Max: 50
+
+RSpec/MessageSpies:
+  Enabled: false
+
 RSpec/VerifiedDoubleReference:
   EnforcedStyle: string
