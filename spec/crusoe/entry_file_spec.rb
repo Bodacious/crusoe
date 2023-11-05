@@ -29,17 +29,26 @@ RSpec.describe Crusoe::EntryFile do
 
       allow(File).to receive(:exist?).and_return(true)
 
-      expect(entry_file.exist?).to be true
+      expect(entry_file.exist?).to be(true)
     end
   end
 
   describe "#write" do
-    it "creates the directory and writes to the file" do
+    it "creates the directory if it doesn't exist" do
+      entry_file_name = "/path/to/entry/file.md"
+      entry_file = described_class.new(entry_file_name)
+      allow(File).to receive(:write).with(entry_file_name, "Content")
+      expect(FileUtils).to receive(:mkdir_p).with("/path/to/entry")
+
+      entry_file.write("Content")
+    end
+
+    it "writes to the file" do
       entry_file_name = "/path/to/entry/file.md"
       entry_file = described_class.new(entry_file_name)
 
-      expect(FileUtils).to receive(:mkdir_p).with("/path/to/entry")
       expect(File).to receive(:write).with(entry_file_name, "Content")
+      allow(FileUtils).to receive(:mkdir_p).with("/path/to/entry")
 
       entry_file.write("Content")
     end

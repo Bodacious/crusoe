@@ -1,5 +1,5 @@
 require "thor"
-require_relative "commands/git_commit"
+require_relative "commands/git"
 require_relative "commands/journal"
 require_relative "commands/read"
 require_relative "configuration"
@@ -22,21 +22,23 @@ module Crusoe
     desc "journal", "This is the default task."
     option :date, type: "string", default: "today"
     def journal
+      fetch_remote_repo
       date = parse_date_option(options[:date])
       write(date)
-      update_repo
+      update_remote_repo
     end
 
     desc "read", "Read an entry"
     option :date, type: "string", default: "today"
     def read
+      update_remote_repo
       date = parse_date_option(options[:date])
       read_dates(date)
-      update_repo
     end
 
     desc "report", "Generate a report for the last week"
     def report
+      update_remote_repo
       today = Date.today
       days_to_last_monday = (today.wday - 1) % 7
       last_monday = today - days_to_last_monday
@@ -77,8 +79,15 @@ module Crusoe
       interface.write(journal.entry_file_name)
     end
 
-    def update_repo
-      Commands::GitCommit.new(directory: configuration.entries_directory_path).commit_and_push!
+    def fetch_remote_repo
+      Commands::Git::Checkout.new(directory: configuration.entries_directory_path).main
+      Commands::Git::Pull.new(directory: configuration.entries_directory_path).main
+    end
+
+    def update_remote_repo
+      Commands::Git::Add.new(directory: configuration.entries_directory_path).all
+      Commands::Git::Commit.new(directory: configuration.entries_directory_path).commit!
+      Commands::Git::Push.new(directory: configuration.entries_directory_path).main
     end
   end
 end

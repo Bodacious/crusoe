@@ -9,7 +9,7 @@ module Crusoe
       attr_reader :directory
 
       DAY_SEPARATOR = "\n\n".freeze
-      JOURNAL_FILE_DATE_REGEX = %r{/(?<date>\d{4}-\d{2}-\d{2})\.md$}.freeze
+      JOURNAL_FILE_DATE_REGEX = %r{/(?<date>\d{4}-\d{2}-\d{2})\.md$}
 
       def initialize(directory:, date_range:)
         @directory = directory
