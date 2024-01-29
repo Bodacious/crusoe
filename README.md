@@ -23,6 +23,30 @@ Commands:
 gem install crusoe
 ```
 
+## Feature list
+
+### Write to journal 
+
+#### `crusoe journal ✅` 
+
+- Write a single journal entry for given day (defaults to today)
+- Automatically saves to git repo configured by you
+- Default command for `crusoe`
+- Can provide an optional `--date` value (e.g. one of `"today"`, `"yesterday"`, `"2023-12-25"`)
+
+#### `crusoe read ✅`
+
+- Read a single journal entry for given day (defaults to today)
+- Can provide an optional `--date` value (e.g. one of `"today"`, `"yesterday"`, `"2023-12-25"`)
+
+#### `crusoe report ✅`
+
+- Print the entries from the current week
+
+#### Organise journal in the README 🏗
+
+- WIP: Keep an up-to-date index of all entries in the README
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
