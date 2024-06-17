@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    crusoe (0.2.0)
+    crusoe (0.2.1)
       git
       thor
       yaml
