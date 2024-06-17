@@ -1,5 +1,7 @@
 # Crusoe
 
+[![Ruby](https://github.com/Bodacious/crusoe/actions/workflows/main.yml/badge.svg)](https://github.com/Bodacious/crusoe/actions/workflows/main.yml)
+
 A simple daily work journal from your command-line 
 
 ```
