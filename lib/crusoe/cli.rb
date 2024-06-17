@@ -85,6 +85,8 @@ module Crusoe
     end
 
     def update_remote_repo
+      return if Commands::Git::Status.new(directory: configuration.entries_directory_path).empty?
+
       Commands::Git::Add.new(directory: configuration.entries_directory_path).all
       Commands::Git::Commit.new(directory: configuration.entries_directory_path).commit!
       Commands::Git::Push.new(directory: configuration.entries_directory_path).main

@@ -6,6 +6,7 @@ module Crusoe
       require_relative "git/commit"
       require_relative "git/pull"
       require_relative "git/push"
+      require_relative "git/status"
     end
   end
 end
