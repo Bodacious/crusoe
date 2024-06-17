@@ -33,7 +33,7 @@ module Crusoe
     def read
       update_remote_repo
       date = parse_date_option(options[:date])
-      read_dates(date)
+      read_dates(date..date)
     end
 
     desc "report", "Generate a report for the last week"
