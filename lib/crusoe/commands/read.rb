@@ -11,6 +11,8 @@ module Crusoe
       DAY_SEPARATOR = "\n\n".freeze
       JOURNAL_FILE_DATE_REGEX = %r{/(?<date>\d{4}-\d{2}-\d{2})\.md$}
 
+      # @param [FilePath] directory The git directory to read from
+      # @param [Range] date_range The Range of dates to read from
       def initialize(directory:, date_range:)
         @directory = directory
         @date_range = date_range
@@ -25,7 +27,7 @@ module Crusoe
       def files
         Dir.glob(File.join(directory, "*", "*.md"))
            .select do |file|
-          match_data = file.match(JOURNAL_FILE_DATE_REGEX)
+          match_data = file.match(JOURNAL_FILE_DATE_REGEX) or next
           file_date = Date.parse(match_data[:date])
           date_range.include?(file_date)
         end
