@@ -28,7 +28,9 @@ module Crusoe
         Dir.glob(File.join(directory, "*", "*.md"))
            .select do |file|
           match_data = file.match(JOURNAL_FILE_DATE_REGEX) or next
-          file_date = Date.parse(match_data[:date])
+
+          file_date = Date.parse(match_data[:date].to_s)
+          date_range = date_range..date_range unless date_range.is_a?(Range)
           date_range.include?(file_date)
         end
       end
